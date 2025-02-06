@@ -1,0 +1,27 @@
+.rover_version {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.settingsV {
+    display: flex;
+    flex-direction: column;
+    row-gap: 4px;
+    max-width: 600px;
+}
+
+/* .settings_centered {
+    max-width: unset;
+    align-self: center;
+    justify-self: center;
+    min-width: 600px;
+}
+
+.settings_centered .settings_backdrop_content {
+    max-width: unset;
+    width: 600px;
+} */
+
+/* .settings_backdrop_content {
+    max-width: 600px;
+} */

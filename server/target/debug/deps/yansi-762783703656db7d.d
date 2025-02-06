@@ -1,0 +1,14 @@
+/Users/josh/Documents/GitHub/coast-guard/server/target/debug/deps/libyansi-762783703656db7d.rmeta: /Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/yansi-1.0.1/src/lib.rs /Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/yansi-1.0.1/src/macros.rs /Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/yansi-1.0.1/src/windows.rs /Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/yansi-1.0.1/src/attr_quirk.rs /Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/yansi-1.0.1/src/style.rs /Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/yansi-1.0.1/src/color.rs /Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/yansi-1.0.1/src/paint.rs /Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/yansi-1.0.1/src/global.rs /Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/yansi-1.0.1/src/condition.rs /Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/yansi-1.0.1/src/set.rs
+
+/Users/josh/Documents/GitHub/coast-guard/server/target/debug/deps/yansi-762783703656db7d.d: /Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/yansi-1.0.1/src/lib.rs /Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/yansi-1.0.1/src/macros.rs /Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/yansi-1.0.1/src/windows.rs /Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/yansi-1.0.1/src/attr_quirk.rs /Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/yansi-1.0.1/src/style.rs /Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/yansi-1.0.1/src/color.rs /Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/yansi-1.0.1/src/paint.rs /Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/yansi-1.0.1/src/global.rs /Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/yansi-1.0.1/src/condition.rs /Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/yansi-1.0.1/src/set.rs
+
+/Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/yansi-1.0.1/src/lib.rs:
+/Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/yansi-1.0.1/src/macros.rs:
+/Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/yansi-1.0.1/src/windows.rs:
+/Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/yansi-1.0.1/src/attr_quirk.rs:
+/Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/yansi-1.0.1/src/style.rs:
+/Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/yansi-1.0.1/src/color.rs:
+/Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/yansi-1.0.1/src/paint.rs:
+/Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/yansi-1.0.1/src/global.rs:
+/Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/yansi-1.0.1/src/condition.rs:
+/Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/yansi-1.0.1/src/set.rs:

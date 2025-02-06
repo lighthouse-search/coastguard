@@ -1,0 +1,12 @@
+.user_post_content {
+    display: flex;
+    flex-direction: column;
+}
+.discussion_post .discussion_content .user_post_content {
+    /* row-gap: 2px; */
+    row-gap: 4px;
+}
+
+/* .discussion_post .discussion_content {
+    row-gap: 2px;
+} */

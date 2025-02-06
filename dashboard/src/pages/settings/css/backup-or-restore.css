@@ -1,0 +1,8 @@
+.this_downloads_a_sql_backup {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.backup_or_restore {
+    row-gap: 6px;
+}

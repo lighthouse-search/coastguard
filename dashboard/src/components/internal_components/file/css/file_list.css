@@ -1,0 +1,31 @@
+.file_list {
+    display: flex;
+    flex-direction: column;
+    padding: 6px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    /* max-width: 730px; */
+}
+
+.file_list .file {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 6px;
+    /* width: 100%; */
+    /* justify-content: space-between; */
+}
+
+.file_list .file .name {
+    /* width: 400px; */
+    /* max-width: fit-content; */
+    white-space: nowrap;
+    overflow: hidden;
+    overflow-x: scroll;
+    text-overflow: ellipsis;
+}
+
+.file_list .file .size {
+    font-size: 15px;
+    min-width: max-content;
+}

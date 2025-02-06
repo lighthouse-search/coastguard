@@ -1,0 +1,12 @@
+/Users/josh/Documents/GitHub/coast-guard/server/target/debug/deps/libcookie-e17b11c2b8983fa7.rmeta: /Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cookie-0.18.1/src/lib.rs /Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cookie-0.18.1/src/builder.rs /Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cookie-0.18.1/src/parse.rs /Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cookie-0.18.1/src/jar.rs /Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cookie-0.18.1/src/delta.rs /Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cookie-0.18.1/src/same_site.rs /Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cookie-0.18.1/src/expiration.rs /Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cookie-0.18.1/src/prefix.rs
+
+/Users/josh/Documents/GitHub/coast-guard/server/target/debug/deps/cookie-e17b11c2b8983fa7.d: /Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cookie-0.18.1/src/lib.rs /Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cookie-0.18.1/src/builder.rs /Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cookie-0.18.1/src/parse.rs /Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cookie-0.18.1/src/jar.rs /Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cookie-0.18.1/src/delta.rs /Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cookie-0.18.1/src/same_site.rs /Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cookie-0.18.1/src/expiration.rs /Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cookie-0.18.1/src/prefix.rs
+
+/Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cookie-0.18.1/src/lib.rs:
+/Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cookie-0.18.1/src/builder.rs:
+/Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cookie-0.18.1/src/parse.rs:
+/Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cookie-0.18.1/src/jar.rs:
+/Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cookie-0.18.1/src/delta.rs:
+/Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cookie-0.18.1/src/same_site.rs:
+/Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cookie-0.18.1/src/expiration.rs:
+/Users/josh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cookie-0.18.1/src/prefix.rs:

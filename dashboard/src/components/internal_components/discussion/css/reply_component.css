@@ -1,0 +1,9 @@
+.reply_component {
+    box-sizing: border-box;
+}
+.reply_component .user textarea {
+    width: 100%;
+    /* min-height: 40px; */
+    min-height: 22px;
+    resize: vertical;
+}

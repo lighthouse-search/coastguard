@@ -1,0 +1,1 @@
+JoinOn<query_source::joins::Join<tables::discussions::table, tables::namespaces::table, LeftOuter>, expression::grouped::Grouped<expression::operators::Eq<NullableExpression<tables::namespaces::columns::id>, NullableExpression<tables::project::columns::namespace>>>>

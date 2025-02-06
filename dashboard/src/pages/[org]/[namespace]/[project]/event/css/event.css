@@ -1,0 +1,36 @@
+.event .title {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 20px;
+}
+
+.event {
+    /* padding: 20px; */
+    box-sizing: border-box;
+    overflow-y: scroll;
+}
+
+.event .topbar {
+    display: flex;
+    flex-direction: column;
+    row-gap: 4px;
+}
+
+.event .content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 6px;
+    margin-top: 8px;
+    box-sizing: border-box;
+}
+
+.lettre_ul {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    row-gap: 8px;
+    padding-bottom: 15px;
+}

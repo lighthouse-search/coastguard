@@ -1,0 +1,15 @@
+.tag {
+    padding: 4px;
+    padding-left: 6px;
+    padding-right: 6px;
+    border-radius: 10px;
+    width: fit-content;
+}
+
+.event_component .event_discussion_preview {
+    /* height: 180px; */
+    max-height: 154px;
+    overflow-y: scroll;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}

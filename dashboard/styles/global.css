@@ -1,0 +1,32 @@
+.home_padding {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+}
+
+code {
+    color: black;
+    background-color: #f1f1f1;
+    padding: 6px;
+    border-radius: 4px;
+}
+
+/* .user_role {
+    padding: 2px;
+    padding-left: 6px;
+    padding-right: 6px;
+    border-radius: 15px;
+    font-size: 12px;
+    background-color: aqua;
+} */
+
+/* .user_role {
+    padding: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    font-size: 12px;
+} */
+
+a:hover {
+    text-decoration: underline;
+}
