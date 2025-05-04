@@ -49,7 +49,7 @@ export default function Sidebar2_project(props) {
                 </SidebarButton1>
                 <SidebarButton1 alias="Events" href={prepend+"/event"} icon="/icons/events.svg"/>
                 <SidebarButton1 alias="Errors" href={prepend+"/error"} icon="/icons/bomb.svg"/>
-                <SidebarButton1 alias="Issues" href={prepend+"/bug"} icon="/icons/bug.svg"/>
+                <SidebarButton1 alias="Issues" href={prepend+"/issue"} icon="/icons/bug.svg"/>
                 {/* Requests should probably just be built on an events search query endpoint. It doesn't need its own endpoint. */}
                 <SidebarButton1 alias="Requests" href={prepend+"/request"} icon="/icons/traffic-light.svg"/>
                 <SidebarButton1 alias="Timing" href={prepend+"/timing"} icon="/icons/timer.svg"/>

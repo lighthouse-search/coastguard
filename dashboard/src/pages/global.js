@@ -16,4 +16,9 @@ function get_first_letters(sentence) {
     .join(''); // Join them back into a string
 }
 
-export { credentials_object, get_first_letters }
+function get_prepend(router) {
+  const prepend = router.query.project != null ? `/${router.query.org}/${router.query.namespace}/${router.query.project}` : "";
+  return prepend;
+}
+
+export { credentials_object, get_first_letters, get_prepend }

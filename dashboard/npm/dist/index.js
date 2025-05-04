@@ -3,7 +3,7 @@ import account from "./account.js";
 import device from "./device.js";
 import fetch_wrapper from "./fetcher.js";
 import general from "./general.js";
-import error from "./error.js";
+import issue from "./issue.js";
 import discussion from "./discussion.js";
 import event from "./event.js";
 import org from "./org.js";
@@ -51,7 +51,7 @@ function Coastguard(credsObject) {
         fetch_wrapper: fetch_wrapper,
         general: general,
         account: account,
-        error: error,
+        issue: issue,
         discussion: discussion,
         event: event,
         org: org,

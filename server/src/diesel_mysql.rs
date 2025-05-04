@@ -65,8 +65,7 @@ pub fn stage() -> AdHoc {
     AdHoc::on_ignite("Diesel SQLite Stage", |rocket| async {
         rocket
         .mount("/api", routes![options_handler])
-        .mount("/api/native-v1/error", routes![crate::endpoint::error::error_list, crate::endpoint::error::error_update])
-        .mount("/api/native-v1/bug", routes![])
+        .mount("/api/native-v1/issue", routes![crate::endpoint::issue::issue_list, crate::endpoint::issue::issue_update])
         .mount("/api/native-v1/event", routes![])
         .mount("/api/native-v1/request", routes![])
         .mount("/api/native-v1/timing", routes![])

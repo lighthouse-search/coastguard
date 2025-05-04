@@ -29,12 +29,12 @@ pub struct User_update_body {
 }
 
 #[derive(Clone, Debug, Deserialize)]
-pub struct Error_update_body {
-    pub actions: Option<Vec<Error_update_action>>,
+pub struct Issue_update_body {
+    pub actions: Option<Vec<Issue_update_action>>,
 }
 
 #[derive(Clone, Debug, Deserialize)]
-pub struct Error_update_action {
+pub struct Issue_update_action {
     pub action: Option<String>,
     pub id: Option<String>,
     pub title: Option<String>,
@@ -329,8 +329,8 @@ impl From<(User_rating, Accounts)> for User_rating_public {
 
 #[derive(Debug, Clone, Deserialize, Serialize, Queryable, Insertable, Selectable, QueryableByName, Identifiable)]
 #[serde(crate = "rocket::serde")]
-#[diesel(table_name = error)]
-pub struct Error {
+#[diesel(table_name = issue)]
+pub struct Issue {
     pub id: String,
     pub title: Option<String>,
     pub created: Option<i64>,
@@ -339,7 +339,7 @@ pub struct Error {
 }
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
-pub struct Error_public {
+pub struct Issue_public {
     pub id: String,
     pub title: Option<String>,
     pub created: Option<i64>,
@@ -347,14 +347,14 @@ pub struct Error_public {
     pub discussion: Option<String>
 }
 
-impl From<(Error, Project, Namespace, Org)> for Error_public {
-    fn from((error, project, namespace, org): (Error, Project, Namespace, Org)) -> Self {
-        Error_public {
-            id: error.id,
-            title: error.title,
-            created: error.created,
+impl From<(Issue, Project, Namespace, Org)> for Issue_public {
+    fn from((issue, project, namespace, org): (Issue, Project, Namespace, Org)) -> Self {
+        Issue_public {
+            id: issue.id,
+            title: issue.title,
+            created: issue.created,
             project: (project, namespace, org).into(),
-            discussion: error.discussion,
+            discussion: issue.discussion,
         }
     }
 }

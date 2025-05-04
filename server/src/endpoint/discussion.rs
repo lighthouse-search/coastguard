@@ -81,8 +81,8 @@ pub async fn discussion_update(params: &Query_string, mut body: Json<Discussion_
         } else if (action == "update") {
             // TODO: This needs to check discussions, not devices, and add an edit history.
             let error_id = data.id.clone().expect("missing body.id");
-            let device_check: Option<Error> = error::table
-            .filter(error::id.eq(error_id.clone()))
+            let device_check: Option<Issue> = issue::table
+            .filter(issue::id.eq(error_id.clone()))
             .first(&mut db)
             .optional()
             .expect("Something went wrong querying the DB.");

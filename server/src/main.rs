@@ -20,7 +20,7 @@ pub mod globals {
 pub mod endpoint {
     pub mod account;
     pub mod discussion;
-    pub mod error;
+    pub mod issue;
     pub mod event;
     pub mod namespace;
     pub mod org;

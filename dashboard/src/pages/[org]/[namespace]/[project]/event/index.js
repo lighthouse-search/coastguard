@@ -95,9 +95,11 @@ export default function Event_list(props) {
         )
     });
 
+    const header = props.header ? props.header : "Events";
+
     if (events == null) {
         return (
-            <Home1 header="Errors">
+            <Home1 header={header}>
                 <Loading/>
             </Home1>
         )
@@ -114,7 +116,7 @@ export default function Event_list(props) {
     });
 
     return (
-        <Home1 header={props.header ? props.header : "Events"} className="row_gap_8">
+        <Home1 header={header} className="row_gap_8">
             <div className='row space_between'>
                 <div>
                     <input placeholder='Search'/>

@@ -44,7 +44,7 @@ diesel::table! {
 }
 
 diesel::table! {
-    error (id) {
+    issue (id) {
         id -> Varchar,
         title -> Nullable<Text>,
         created -> Nullable<BigInt>,
@@ -101,4 +101,4 @@ diesel::table! {
     }
 }
 
-diesel::allow_tables_to_appear_in_same_query!(accounts, discussions, error, bug, project, orgs, namespaces, device, user_rating);
+diesel::allow_tables_to_appear_in_same_query!(accounts, discussions, issue, bug, project, orgs, namespaces, device, user_rating);

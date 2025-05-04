@@ -19,7 +19,7 @@ declare function Coastguard(credsObject: any): {
         me: () => Promise<any>;
         update: (data: object) => Promise<any>;
     };
-    error: {
+    issue: {
         list: (id?: string[]) => Promise<any>;
     };
     discussion: {

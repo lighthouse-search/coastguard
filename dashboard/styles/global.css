@@ -30,3 +30,10 @@ code {
 a:hover {
     text-decoration: underline;
 }
+
+.setting_content {
+    display: flex;
+    flex-direction: column;
+    width: 750px;
+    row-gap: 8px;
+}
