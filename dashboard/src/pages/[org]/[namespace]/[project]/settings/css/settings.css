@@ -1,0 +1,61 @@
+.org {
+    padding: 0px !important;
+}
+
+.org_art::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.713); /* Change this to the desired color */
+    z-index: -1; /* Ensure it is behind the content */
+}
+
+.org_art {
+    display: flex;
+    flex-direction: column;
+    /* z-index: 3; */
+
+    background: #2b5876;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4e4376, #2b5876);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4e4376, #2b5876); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.org_art .org_image {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    z-index: 0;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+    color: #000;
+}
+
+.org .org_content {
+    padding: 16px;
+    row-gap: 6px;
+}
+
+/* .org .org_content .org_metadata {
+    color: white;
+} */
+
+.org .org_content .org_metadata .icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 2px;
+}
+
+.org .org_content .org_metadata .org_title {
+    font-size: 28px;
+    margin-bottom: -2px;
+}
+
+.org .org_content .org_metadata .org_sub {
+    font-size: 14px;
+}
