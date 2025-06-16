@@ -1,0 +1,82 @@
+version: 1.0
+name: Bluesky Feed Creator health-check
+description: Creates testing environment during deployment to test and validates Bluesky Feed Creator API responses to verify health.
+settings:
+  project_id: d3103f56-d4a8-11ef-a084-0242ac110002
+
+env:
+    url: https://example.com
+
+jobs:
+    build:
+        commands:
+            - name: Create database
+              database:
+                mysql:
+                    username: example-user
+                    password: my-cool-secret
+                    port: 3306
+
+            - name: Start BSFC server
+              run: |
+                NODE_ENV=coastguard npm run start-prod
+            
+            - name: Health-check (Loop until BSFC server is ready)
+              health_check:
+                method: GET
+                url: 127.0.0.1/_health
+                loop: true
+                timeout: 60000
+    authentication:
+      commands:
+      - name: Email Client
+        email:
+              smtp:
+                  credentials:
+                      email: coastguard.test@blueskyfeedcreator.com
+                      password_env: email_password
+              id: bsfc_fastmail_smtp
+              connect:
+
+      - name: Create Account
+        request:
+          method: POST
+          url: 127.0.0.1/signup
+          content_type: application/x-www-form-urlencoded
+          body: {
+              email: coastguard@blueskyfeedcreator.com,
+              name: Coastguard-CLI,
+              password: this_should_be_made_random_via_a_bash_script
+          }
+          response:
+              body:
+                  ok:
+                      type: string
+                      nullable: true
+
+      - name: Wait for activation email
+        email:
+          ref: bsfc_fastmail_smtp
+          wait:
+              subject_line: [Bluesky Feed Creator] Complete your Sign-up
+              from: service@blueskyfeedcreator.com
+              timeout: 1200000
+          on_receive:
+              run: |
+                  echo "We need to add bash here that parses the activation link from email contents. These are email contents: $1"
+
+      - name: Activate Account
+        request:
+          method: GET
+          url: 127.0.0.1/signup/complete
+          content_type: application/x-www-form-urlencoded
+          params: {
+              token: TOKEN WE GOT FROM EMAIL
+          }
+          response:
+              cookie:
+                  connect.sid:
+                      type: string
+                      nullable: false
+                      env: login_token
+                          
