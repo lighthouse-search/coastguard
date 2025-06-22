@@ -1,3 +1,6 @@
+CREATE DATABASE coastguard;
+use coastguard;
+
 CREATE TABLE accounts (
     id VARCHAR(255) PRIMARY KEY,
     name TEXT,
