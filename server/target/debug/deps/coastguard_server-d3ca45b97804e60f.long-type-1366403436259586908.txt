@@ -1,1 +1,0 @@
-SelectStatement<FromClause<JoinOn<query_source::joins::Join<tables::namespaces::table, tables::orgs::table, LeftOuter>, expression::grouped::Grouped<expression::operators::Eq<NullableExpression<tables::orgs::columns::id>, NullableExpression<tables::namespaces::columns::org>>>>>>
