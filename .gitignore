@@ -1,3 +1,5 @@
 cli/target
 server/target
 .DS_Store
+example/coastguard-dev-config-priv.toml
+server/target

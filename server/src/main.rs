@@ -116,21 +116,23 @@ static DB_POOL: Lazy<Pool> = Lazy::new(|| {
         .expect("Failed to create pool.")
 });
 
-pub static CONFIG_VALUE: Lazy<Value> = Lazy::new(|| {
+pub static CONFIG_VALUE: Lazy<Config> = Lazy::new(|| {
     get_config().expect("Failed to get config")
 });
 
-fn get_config() -> Result<Value, Box<dyn Error>> {
-    let mut config_value: String = String::new();
-    if let Some(val) = env::var("coastguard_config").ok() {
-        println!("Value of coastguard_config: {}", val);
+fn get_config() -> Result<Config, String> {
+    let environment_variable = "coastguard_config";
+    let mut config_str: String = String::new();
+    if let Some(val) = env::var(environment_variable).ok() {
+        println!("Value of {}: {}", environment_variable, val);
 
-        config_value = val;
+        config_str = val;
     } else {
-        return Err("Missing \"coastguard_config\" environment variable".into());
+        return Err(format!("Missing \"{}\" environment variable", environment_variable).into());
     }
 
-    let config: Value = toml::from_str(&config_value).unwrap();
+    let config_value: Value = toml::from_str(&config_str).unwrap();
+    let config: Config = serde_json::from_value(serde_json::to_value(config_value).expect("Failed to convert config value from toml to serde::json")).expect("Failed to parse config");
 
     Ok(config)
 }

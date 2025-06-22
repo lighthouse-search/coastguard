@@ -11,6 +11,77 @@ type DbPool = r2d2::Pool<ConnectionManager<MysqlConnection>>;
 // #[database("mysql_db")]
 // struct DbConn(MysqlConnection);
 
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub struct Config {
+    pub features: Option<Config_features>,
+    pub tls: Option<TlsHost>,
+    pub database: Option<Config_database>,
+    pub sql: Option<Config_sql>,
+    pub smtp: Option<Config_smtp>,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub struct Config_features {
+    pub tls: Option<bool>
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub struct Config_reverse_proxy_authentication {
+    pub config: Option<Config_reverse_proxy_authentication_config>
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub struct Config_reverse_proxy_authentication_config {
+    pub header: Option<String>
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub struct Config_database {
+    pub mysql: Option<Config_database_mysql>
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub struct TlsHost {
+    pub certificate: Option<String>,
+    // pub hostname: String,
+
+    #[serde(rename = "private-key")]
+    pub private_key: Option<String>,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub struct Config_database_mysql {
+    pub username: Option<String>,
+    pub password_env: Option<String>,
+    pub hostname: Option<String>,
+    pub port: Option<u16>,
+    pub database: Option<String>,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub struct Config_sql {
+    pub tables: Option<Value>
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub struct Config_sql_tables {
+    pub user: Option<String>,
+    pub device: Option<String>,
+    pub magiclink: Option<String>,
+    pub bearer_token: Option<String>
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub struct Config_smtp {
+    pub host: Option<String>,
+    pub port: Option<u16>,
+    pub username: Option<String>,
+    pub from_alias: Option<String>,
+    pub from_header: Option<String>,
+    pub reply_to_address: Option<String>,
+    pub password_env: Option<String>
+}
+
 // Incoming body structs
 #[derive(Clone, Debug, Deserialize)]
 pub struct Login_body {
@@ -146,35 +217,6 @@ pub struct Request_authentication_output {
     pub account_id: String,
     pub device_id: String,
     pub project_id: String
-}
-
-#[derive(Debug, Clone, Deserialize, Serialize)]
-pub struct Config_sql {
-    pub user: Option<String>,
-    pub device: Option<String>,
-    pub magiclink: Option<String>,
-    pub network: Option<String>,
-    pub process: Option<String>
-}
-
-#[derive(Debug, Clone, Deserialize, Serialize)]
-pub struct Config_database_mysql {
-    pub username: Option<String>,
-    pub password_env: Option<String>,
-    pub hostname: Option<String>,
-    pub port: Option<i64>,
-    pub database: Option<String>
-}
-
-#[derive(Debug, Clone, Deserialize, Serialize)]
-pub struct Config_smtp {
-    pub host: Option<String>,
-    pub port: Option<i64>,
-    pub username: Option<String>,
-    pub from_alias: Option<String>,
-    pub from_header: Option<String>,
-    pub reply_to_address: Option<String>,
-    pub password_env: Option<String>
 }
 
 #[derive(Debug, Clone, Deserialize, Serialize, Queryable, Insertable, Selectable, QueryableByName, Identifiable)]
