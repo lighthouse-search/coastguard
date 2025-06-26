@@ -1,7 +1,7 @@
 *work in progress*
 
 # Coastguard
-With a concern a handful of companies collecting massive amounts of diagnostic information, which can contain lots of information about the user, their device, their activity, etc. Coastguard started as a way for developers to independently store and manage their error data and has evolved from there.
+With the concern a handful of companies collecting massive amounts of diagnostic information, which can contain lots of information about the user, their device, their activity, etc. Coastguard started as a way for developers to independently store and manage their error data and has evolved from there.
 
 Coastguard's core mission:
 - Democratize error collection by enabling developers with data governance.
