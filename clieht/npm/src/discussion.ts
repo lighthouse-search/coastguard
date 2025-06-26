@@ -1,8 +1,10 @@
+import general from "./general.js";
 import { Coastguard, getCreds } from "./index.js";
 import { getPlatformApiURLWithoutPathname } from "./routing.js";
 
-async function me(): Promise<any> {
-    const response = await Coastguard(getCreds()).fetch_wrapper(`${getPlatformApiURLWithoutPathname()}/account/me`, {
+async function list(id: string[] = [], filter: any): Promise<any> {
+    id = general().filter_nonsense(id);
+    const response = await Coastguard(getCreds()).fetch_wrapper(`${getPlatformApiURLWithoutPathname()}/discussion/list?${general().objectToParams({ id, filter: filter ? JSON.stringify(filter) : null })}`, {
         method: 'GET', // *GET, POST, PUT, DELETE, etc.
         mode: 'cors', // no-cors, *cors, same-origin
         cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
@@ -12,14 +14,17 @@ async function me(): Promise<any> {
         },
         redirect: 'error', // manual, *follow, error
         referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-    })
+    });
     
-    const data = await response.json();
-    return data;
+    const json = response.json();
+    if (response.status !== 200) {
+        throw json;
+    }
+    return json;
 }
 
-async function update(data: object): Promise<any> {
-    const response = await Coastguard(getCreds()).fetch_wrapper(`${getPlatformApiURLWithoutPathname()}/account/update`, {
+async function update(actions: object): Promise<any> {
+    const response = await Coastguard(getCreds()).fetch_wrapper(`${getPlatformApiURLWithoutPathname()}/discussion/update`, {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
         mode: 'cors', // no-cors, *cors, same-origin
         cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
@@ -27,14 +32,17 @@ async function update(data: object): Promise<any> {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ actions }),
         redirect: 'error', // manual, *follow, error
         referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
     })
     
-    const json = await response.json();
+    const json = response.json();
+    if (response.status !== 200) {
+        throw json;
+    }
     return json;
 }
 
-const account = { me, update };
-export default account;
+const discussion = { list, update };
+export default discussion;

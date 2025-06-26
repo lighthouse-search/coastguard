@@ -16,9 +16,11 @@ async function list(id: string[] = []): Promise<any> {
         referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
     })
     
-    const data = response.json();
-    
-    return data;
+    const json = response.json();
+    if (response.status !== 200) {
+        throw json;
+    }
+    return json;
 }
 
 const project = { list };

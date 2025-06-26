@@ -4,7 +4,7 @@ import { getPlatformApiURLWithoutPathname } from "./routing.js";
 
 async function list(id: string[] = [], filter: any): Promise<any> {
     id = general().filter_nonsense(id);
-    const response = await Coastguard(getCreds()).fetch_wrapper(`${getPlatformApiURLWithoutPathname()}/discussion/list?${general().objectToParams({ id, filter: filter ? JSON.stringify(filter) : null })}`, {
+    const response = await Coastguard(getCreds()).fetch_wrapper(`${getPlatformApiURLWithoutPathname()}/user-rating/list?${general().objectToParams({ id, filter: filter ? JSON.stringify(filter) : null })}`, {
         method: 'GET', // *GET, POST, PUT, DELETE, etc.
         mode: 'cors', // no-cors, *cors, same-origin
         cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
@@ -14,15 +14,17 @@ async function list(id: string[] = [], filter: any): Promise<any> {
         },
         redirect: 'error', // manual, *follow, error
         referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-    });
+    })
     
-    const data = await response.json();
-    
-    return data;
+    const json = response.json();
+    if (response.status !== 200) {
+        throw json;
+    }
+    return json;
 }
 
 async function update(actions: object): Promise<any> {
-    const response = await Coastguard(getCreds()).fetch_wrapper(`${getPlatformApiURLWithoutPathname()}/discussion/update`, {
+    const response = await Coastguard(getCreds()).fetch_wrapper(`${getPlatformApiURLWithoutPathname()}/user-rating/update`, {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
         mode: 'cors', // no-cors, *cors, same-origin
         cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
@@ -30,15 +32,19 @@ async function update(actions: object): Promise<any> {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ actions }),
+        body: JSON.stringify({
+            actions: actions
+        }),
         redirect: 'error', // manual, *follow, error
         referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
     })
     
-    const data = await response.json();
-    
-    return data;
+    const json = response.json();
+    if (response.status !== 200) {
+        throw json;
+    }
+    return json;
 }
 
-const discussion = { list, update };
-export default discussion;
+const user_rating = { list, update };
+export default user_rating;

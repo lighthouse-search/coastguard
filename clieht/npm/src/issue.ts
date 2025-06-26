@@ -17,6 +17,9 @@ async function list(id: string[] = []): Promise<any> {
     })
     
     const json = response.json();
+    if (response.status !== 200) {
+        throw json;
+    }
     return json;
 }
 

@@ -1,7 +1,8 @@
 import general from "./general.js";
 import { Coastguard, getCreds } from "./index.js";
 import { getPlatformApiURLWithoutPathname } from "./routing.js";
-async function list(id = []) {
+
+async function list(id: string[] = []): Promise<any> {
     id = general().filter_nonsense(id);
     const response = await Coastguard(getCreds()).fetch_wrapper(`${getPlatformApiURLWithoutPathname()}/org/list?${general().objectToParams({ id })}`, {
         method: 'GET', // *GET, POST, PUT, DELETE, etc.
@@ -13,9 +14,14 @@ async function list(id = []) {
         },
         redirect: 'error', // manual, *follow, error
         referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-    });
-    const data = response.json();
-    return data;
+    })
+    
+    const json = response.json();
+    if (response.status !== 200) {
+        throw json;
+    }
+    return json;
 }
+
 const org = { list };
 export default org;

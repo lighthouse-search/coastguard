@@ -1,9 +1,10 @@
 import general from "./general.js";
 import { Coastguard, getCreds } from "./index.js";
 import { getPlatformApiURLWithoutPathname } from "./routing.js";
-async function list(id = [], filter) {
+
+async function list(id: string[] = [], filter: any): Promise<any> {
     id = general().filter_nonsense(id);
-    const response = await Coastguard(getCreds()).fetch_wrapper(`${getPlatformApiURLWithoutPathname()}/discussion/list?${general().objectToParams({ id, filter: filter ? JSON.stringify(filter) : null })}`, {
+    const response = await Coastguard(getCreds()).fetch_wrapper(`${getPlatformApiURLWithoutPathname()}/event/list?${general().objectToParams({ id, filter: filter ? JSON.stringify(filter) : null })}`, {
         method: 'GET', // *GET, POST, PUT, DELETE, etc.
         mode: 'cors', // no-cors, *cors, same-origin
         cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
@@ -13,12 +14,17 @@ async function list(id = [], filter) {
         },
         redirect: 'error', // manual, *follow, error
         referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-    });
-    const data = await response.json();
-    return data;
+    })
+    
+    const json = response.json();
+    if (response.status !== 200) {
+        throw json;
+    }
+    return json;
 }
-async function update(actions) {
-    const response = await Coastguard(getCreds()).fetch_wrapper(`${getPlatformApiURLWithoutPathname()}/discussion/update`, {
+
+async function create(data: object): Promise<any> {
+    const response = await Coastguard(getCreds()).fetch_wrapper(`${getPlatformApiURLWithoutPathname()}/event/create`, {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
         mode: 'cors', // no-cors, *cors, same-origin
         cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
@@ -26,12 +32,17 @@ async function update(actions) {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ actions }),
+        body: JSON.stringify(data),
         redirect: 'error', // manual, *follow, error
         referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-    });
-    const data = await response.json();
-    return data;
+    })
+    
+    const json = response.json();
+    if (response.status !== 200) {
+        throw json;
+    }
+    return json;
 }
-const discussion = { list, update };
-export default discussion;
+
+const event = { list, create };
+export default event;
