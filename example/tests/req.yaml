@@ -2,16 +2,16 @@ version: 1.0
 name: Bluesky health check
 description: Tests and validates API responses to verify Bluesky health.
 settings:
-  project_id: d3103f56-d4a8-11ef-a084-0242ac110002
+  project_id: d3103f56-d4a8-11ef-a084-0242ac110002 # Your coastguard project ID
 
 jobs:
     build:
         env:
-            url: https://gomphus.us-west.host.bsky.network
-            BLUESKY_DID: did:plc:sgcrgcztzb5eqvajnkigmhhv4
-            BLUESKY_HANDLE: bot.oracularhades.com
-            BLUESKY_PASSWORD: redacted
-            access_jwt: redacted
+            url: [YOUR BLUESKY API URL]
+            BLUESKY_DID: [YOUR BLUESKY DID]
+            BLUESKY_HANDLE: [YOUR BLUESKY HANDLE]
+            BLUESKY_PASSWORD: [YOUR BLUESKY APP PASSWORD]
+            access_jwt: [Access jwt] # This is temporary as session handling is somewhat broken in this script.
         commands:
             - name: Post to Bluesky
               run: |

@@ -1,6 +1,5 @@
 /cli/target
 /server/target
-.DS_Store
 
 /example/coastguard-dev-config-priv.toml
 /server/target
@@ -10,3 +9,8 @@
 /example/faulty-typescript-typescript/dist
 /example/faulty-typescript-typescript/node_modules
 /clieht/npm/dist
+
+/example/faulty-typescript-test/node_modules
+
+.DS_Store
+server/.DS_Store
