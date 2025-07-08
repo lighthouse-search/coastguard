@@ -1,0 +1,28 @@
+stages:
+  - build_rust_binary
+  - build
+
+variables:
+  DOCKER_DRIVER: overlay2
+  DOCKER_IMAGE_NAME: $CI_REGISTRY_IMAGE:latest
+  GIT_STRATEGY: clone
+
+build_rust_binary:
+  image: rust:latest
+  stage: build_cli_rust_binary
+  services:
+    - docker:dind
+  script:
+    - rustc --version && cargo --version
+    - apt update -y && apt install zip tree -y
+    - tree /
+    - cd /builds/oracularhades/coastguard/cli
+    - cargo build --verbose --release
+    - cargo test --verbose
+    - mkdir /builds/oracularhades/release
+    - mv /builds/oracularhades/coastguard/cli/target/release/rust-cli /builds/oracularhades/release
+    - tree /builds
+    - zip -r /builds/oracularhades/coastguard/coastguard-cli.zip /builds/oracularhades/release
+  artifacts:
+    paths:
+      - /builds/oracularhades/coastguard/coastguard-cli.zip
