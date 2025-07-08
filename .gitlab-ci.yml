@@ -13,13 +13,13 @@ build_rust_binary:
     - rustc --version && cargo --version
     - apt update -y && apt install zip tree -y
     - tree /
-    - cd /builds/oracularhades/coastguard/cli
+    - cd /builds/lighthouse-search/coastguard/cli
     - cargo build --verbose --release
     - cargo test --verbose
-    - mkdir /builds/oracularhades/release
-    - mv /builds/oracularhades/coastguard/cli/target/release/rust-cli /builds/oracularhades/release
+    - mkdir /builds/lighthouse-search/release
+    - mv /builds/lighthouse-search/coastguard/cli/target/release/rust-cli /builds/lighthouse-search/release
     - tree /builds
-    - zip -r /builds/oracularhades/coastguard/coastguard-cli.zip /builds/oracularhades/release
+    - zip -r /builds/lighthouse-search/coastguard/coastguard-cli.zip /builds/lighthouse-search/release
   artifacts:
     paths:
-      - /builds/oracularhades/coastguard/coastguard-cli.zip
+      - /builds/lighthouse-search/coastguard/coastguard-cli.zip
