@@ -1,5 +1,9 @@
 pub mod structs;
 pub mod test;
+pub mod stage_handler {
+    pub mod request;
+    pub mod health_check;
+}
 
 use std::fs;
 use std::env;

@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Bluesky Feed Creator</title>
+    <link href="/static/bootstrap/bootstrap.min.css?build=2468a62" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css?build=2468a62">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css?build=2468a62">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <link
+      rel="stylesheet"
+      href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css?build=2468a62"
+    />
+    
+    <link href="/static/styles/app.css?build=2468a62" rel="stylesheet">
+    <link href="/static/styles/menu.css?build=2468a62" rel="stylesheet">
+    
+
+
+
+
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js?build=2468a62"></script>
+    
+  </head>
+  <body>
+    
+
+    
+      <div>
+          
+
+<header class="d-flex flex-column        flex-md-row  justify-content-md-between    border-bottom py-3">
+
+    <a href="/" class="d-flex justify-content-center align-items-center     text-dark text-decoration-none">
+      <div class="site-title">Bluesky Feed Creator</div>
+    </a>
+
+    <ul class="nav     d-flex justify-content-center align-items-center    ">
+      <li><a href="/features" class="nav-link px-2 link-dark">Features</a></li>
+      <li><a href="/pricing" class="nav-link px-2 link-dark">Pricing</a></li>
+      <li><a href="/help" class="nav-link px-2 link-dark">Help</a></li>
+      <li><a href="/stats" class="nav-link px-2 link-dark">Stats</a></li>
+      <li><a href="/news" class="nav-link px-2 link-dark">News
+        
+      </a></li>
+      
+    </ul>
+
+    <div class="d-flex justify-content-center align-items-center    ">
+      <!-- Theme Picker -->
+      <div class="dropdown me-3">
+        <button class="btn btn-sm dropdown-toggle" type="button" id="themePicker" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-palette-fill"></i>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="themePicker">
+          <li><a class="dropdown-item theme-option" href="#" data-theme="auto">
+            <i class="bi bi-circle-half"></i> Auto
+          </a></li>
+          <li><a class="dropdown-item theme-option" href="#" data-theme="light">
+            <i class="bi bi-sun-fill"></i> Light
+          </a></li>
+          <li><a class="dropdown-item theme-option" href="#" data-theme="dark">
+            <i class="bi bi-moon-fill"></i> Dark
+          </a></li>
+        </ul>
+      </div>
+
+      
+        <a href="/login" class="btn btn-outline-primary mx-2" role="button" >Login</a>
+        <a href="/signup" class="btn btn-primary mx-2" role="button" >Sign-up</a>
+      
+     
+    </div>
+
+  
+  </header>
+
+    <!-- Warning Banner -->
+<!-- <div class="alert alert-warning text-center sticky-top" role="alert" data-until="2024-11-17T17:06:00">
+  There was an unplanned outage of the "Requires Approval" function in all feeds from 2024-10-23 03:16 - 17:06 GMT. <a class="show-more">More...</a>
+
+  <div class="alert-more">
+    <br/> Posts created in Bluesky during this window will have skipped the approval queue and will be showing in your feeds.
+    <br/> Please double check your feeds that are using "Requires Approval" for any posts that should not belong.
+  </div>
+  
+</div>-->
+
+<!--
+<div class="alert alert-warning text-center sticky-top" role="alert" >
+  Feeds are being affected by a Bluesky services outage. <a class="show-more">More...</a>
+
+  <div class="alert-more">
+    <br/> We are currently experiencing performance issues with Bluesky's firehose and API (How we talk to Bluesky).
+    <br/> This is causing delays in posts being captured for your feeds, and shown in your dashboard, as well as moving posts from 'pending' to being shown in your feeds on Bluesky itself.
+    <br/><br/> To help with this, we are now allowing pending posts to be shown in your feeds, but only if you are not using any label exclusions or Auto Moderator settings.
+    <br/><br/> If you are using any label exclusions or Auto Moderator settings, pending posts will still be held up, as Feed Creator catches up. You don't have to do anything with these, they will be processed automatically as we work through the queue.
+    <br/><br/> We are continuing to monitor the situation and will post updates on our <a href="https://bsky.app/profile/blueskyfeedcreator.com" target="_blank">Bluesky Account</a>.
+  </div>
+  
+</div>
+-->
+<!-- 
+
+<div class="alert alert-warning text-center sticky-top" role="alert" >
+  We are currently experiencing delays and intermittent outages. <a class="show-more">More...</a>
+
+  <div class="alert-more">
+    <br/> We are currently experiencing throughput bottlenecks.
+    <br/> This will cause a large percentage of posts to be missing from your feeds, and the website to be slow to respond.
+    <br/><br/> We are continuing to monitor the situation and will post any updates on our <a href="https://bsky.app/profile/blueskyfeedcreator.com" target="_blank">Bluesky Account</a>.
+  </div>
+  
+</div> -->
+
+      </div>
+    
+
+
+    <main>
+        
+    <div style="padding: 0.5em">
+        
+
+
+    <div class="alert alert-sticky alert-dismissible alert-danger page-content" role="alert">
+        Please verify you are human
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+
+
+<div id="toast-container" aria-live="polite" aria-atomic="true" class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+    <!-- Toasts will be inserted here -->
+</div>
+
+
+
+    <div class="page-content">
+  <form method="post" action="/signup">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" placeholder="Your name">
+    </div>
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+    </div>
+    
+    
+
+    <div class="cf-turnstile" data-sitekey="0x4AAAAAAALGjD26MJwnF2v-"></div>
+
+    <button type="submit" class="btn btn-primary">Sign-up</button>
+  </form>
+</div>
+
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback" defer></script>
+
+
+
+    </div>
+
+    </main>
+    
+    
+      <div>
+          <footer class="main-footer d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <div class="col-md-4 align-items-center">
+        
+        <span class="text-muted">© 2025 | <a  class="text-muted" href="/terms">Terms</a> | 2468a62
+        </span> 
+        
+    </div>
+
+    <ul class="nav col-md-4 justify-content-end align-content-end text-end list-unstyled d-flex flex-column">
+      <li class="ms-3">
+
+<a class="text-muted" href="mailto:support@blueskyfeedcreator.com?subject=Report a Problem&body=Please%20include%3A%0A%0A-%20Your%20feed%20URL%20(e.g.%20https%3A%2F%2Fblueskyfeedcreator.com%2Ffeed%2F1234)%0A-%20Any%20problematic%20post%20URLs%0A-%20A%20description%20of%20the%20issue%0A-%20Screenshots%20of%20how%20your%20feed%20appears%20in%20the%20Bluesky%20app%20and%20the%20BSFC%20feed%20editor%20(if%20applicable)%0A-%20Steps%20to%20reproduce%20(if%20applicable)%0A%0A">Contact Us / Report a Problem</a></li>
+      <li class="ms-3">
+        <a class="text-muted" href="https://bsky.app/profile/blueskyfeedcreator.com">Follow on Bluesky</a>
+      </li>
+    </ul>
+  </footer>
+      </div>
+    
+
+    
+
+    <script src="/static/bootstrap/bootstrap.bundle.min.js?build=2468a62" ></script>
+
+    <script src="/static/scripts/jquery-3.7.1.min.js?build=2468a62" ></script>
+    <script src="/static/bootstrap/bootstrap-select.min.js?build=2468a62" ></script>
+
+    <script src="/static/bootstrap/link-confirmation.js?build=2468a62" ></script>
+
+       
+    <script src="/static/scripts/common.js?build=2468a62" ></script>
+    <script src="/static/scripts/json.extensions.js?build=2468a62" ></script>
+    <script src="/static/scripts/theme-manager.js?build=2468a62" ></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js?build=2468a62"></script>
+    <script src=" https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js "></script>
+
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11549051889">
+    </script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-11549051889');
+    </script>
+
+
+  </body>
+</html>

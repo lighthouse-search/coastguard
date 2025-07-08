@@ -9,14 +9,20 @@ const authentication = {
 async function main() {
     // Log script startup as a Coastguard event.
     const response = await Coastguard(authentication)
-    .event.create({ actions: [{ type: "request", nonce: "Startup", alias: "Startup", content: `Startup at ${new Date().toLocaleDateString()}`, metadata: {
+    .event.create({ actions: [{
+        type: "request",
+        nonce: "Startup",
+        alias: "Startup",
+        content: `Startup at ${new Date().toLocaleDateString()}`,
+        metadata: {
             user: {
                 email: "my_app_user@example.com",
+                ip: "0.0.0.0",
                 cool_embed_object: {
-                    cool: "coolest"
+                    you_can_put_anything_you_want_here: "yeah!"
                 }
             }
-        }} 
+        }}
     ]});
 
     // Deliberately throw error and log it in Coastguard.
@@ -42,7 +48,12 @@ async function sendErrorDetails(error: Error): Promise<void> {
 
     const stackTrace = errorPayload.stack.split("\n").slice(1).join("\n").trimStart();
     const response = await Coastguard(authentication)
-    .event.create({ actions: [{ type: "error", nonce: stackTrace, alias: errorPayload.message, content: JSON.stringify(errorPayload), metadata: {
+    .event.create({ actions: [{
+        type: "error",
+        nonce: stackTrace,
+        alias: errorPayload.message,
+        content: JSON.stringify(errorPayload),
+        metadata: {
             user: {
                 email: "hi@example.com",
                 cool_embed_object: {
